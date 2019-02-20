@@ -21,7 +21,7 @@ export default class HomeScreen extends React.Component {
   render() {
 
     const festivalDate = new Date('March 4, 2019 18:00:00');
-    let timeRemaining = festivalDate - Date.now();
+    let timeRemaining = (festivalDate.getTime() - Date.now())/1000;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -50,7 +50,7 @@ export default class HomeScreen extends React.Component {
               digitTxtStyle={{color: 'purple'}}
               timeLabelStyle={{color: 'red', fontWeight: 'bold'}}
               separatorStyle={{color: 'purple'}}
-              timeToShow={['H', 'M', 'S']}
+              timeToShow={['D', 'H', 'M', 'S']}
               timeLabels={{m: null, s: null}}
               showSeparator
             />
