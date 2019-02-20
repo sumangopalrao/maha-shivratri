@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
+import CountDown from 'react-native-countdown-component';
 
 import { MonoText } from '../components/StyledText';
 
@@ -18,49 +19,49 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
+
+    const festivalDate = new Date('March 4, 2019 18:00:00');
+    let timeRemaining = festivalDate - Date.now();
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
+          {/* <ImageBackground
+            style={{
+              flex: 1,
+            }}
+            source={{ uri: "https://images.pexels.com/photos/912110/pexels-photo-912110.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}}
+            > */}
             <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
+              source={{uri: 'https://cdn.evbuc.com/images/36982982/227103533013/2/logo.png'}}
               style={styles.welcomeImage}
             />
+            {/* </ImageBackground> */}
           </View>
-
           <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
-
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
-
-            <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload.
-            </Text>
+            {/* <Image source={{uri : "https://m.media-amazon.com/images/S/aplus-media/sota/68f2a3f1-14ed-4eaa-bdf7-856c7f6340cf.jpg"}} style={{width: 293, height: 410}}/> */}
+            <Image source={{uri : "https://qawithmohanji.files.wordpress.com/2014/11/shiva.jpg?w=593&h=592"}} style={{width: 293, height: 410}}/>
+            <CountDown
+              size={30}
+              until={timeRemaining}
+              onFinish={() => alert('Finished')}
+              style={styles.timer}
+              digitStyle={{backgroundColor: '#FFF', borderWidth: 2, borderColor: 'purple'}}
+              digitTxtStyle={{color: 'purple'}}
+              timeLabelStyle={{color: 'red', fontWeight: 'bold'}}
+              separatorStyle={{color: 'purple'}}
+              timeToShow={['H', 'M', 'S']}
+              timeLabels={{m: null, s: null}}
+              showSeparator
+            />
           </View>
-
           <View style={styles.helpContainer}>
             <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
+            <Text style={styles.helpLinkText}>Let the Consciousness rise in the Mind like the Sun rises in the Sky</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
-
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
-        </View>
-      </View>
+        </View> 
     );
   }
 
@@ -101,7 +102,10 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#8DB1D0',
+  },
+  timer: {
+    paddingTop: 20,
   },
   developmentModeText: {
     marginBottom: 20,
@@ -182,7 +186,10 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
   helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
+    fontSize: 18,
+    color: '#fff',
+    textAlign: 'center',
+    paddingLeft: 8,
+    paddingRight: 8,
   },
 });
