@@ -3,7 +3,7 @@
 ### Counter for MahaShivratri in React Native! 
 
 
-![Maha Shivratri Countdown](http://imgur.com/a/qboKVg6)
+![Maha Shivratri Countdown](https://raw.githubusercontent.com/austin665/maha-shivratri/master/assets/images/shivratri-screenshot.png)
 
 
 
