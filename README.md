@@ -8,4 +8,4 @@
 
 
 
-` Hara Hara Mahadev `
+` Har Har Mahadev `
